@@ -1,0 +1,562 @@
+/*************************************** Media Queries ************************************/
+$bp-smallest: 24em; // for 375px
+$bp-small: 37.5em; // for 600px
+$bp-medium: 56.25em; // for 900px
+$bp-large: 75em; // for 1200px
+$bp-largest: 112.5em; // for 1800px
+
+/*************************************** FONTS ********************************************/
+$font-primary: 'Poppins', sans-serif;
+
+/*************************************** COLORS ********************************************/
+$color-white: #fff;
+$color-black: #000;
+$color-light: #fcf8f5;
+$color-grey-light: #a6a3a1;
+$color-grey-medium: #5c473d;
+$color-primary: #985738;
+$color-primary-light: #b28c72; 
+$color-pink-light: #e8c8b2;
+$color-dark: #100805;
+
+
+/*************************************** Center our content ************************************/
+.row{
+    max-width: 114rem;
+    margin: 0 auto;
+    @media only screen and (max-width: $bp-large){
+        max-width: 100rem;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: $bp-medium){
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: $bp-small){
+        max-width: 55rem;
+        margin: 0 auto;
+    }
+    @media only screen and (max-width: $bp-smallest){
+        max-width: 50rem;
+        margin: 0 auto;
+    }
+}
+/*************************************** Basic Styling ********************************************/
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+
+*,
+*:before,
+*:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    @media only screen and (max-width: $bp-large){
+        font-size: 56.25%; //9rem
+    }
+    @media only screen and (max-width: $bp-medium){
+        font-size: 50%; //8rem
+    }
+    @media only screen and (max-width: $bp-small){
+        font-size: 43.75%;//7rem
+    }
+    @media only screen and (max-width: $bp-smallest){
+        font-size: 37.5%; //6rem
+    }
+    
+}
+body{
+    font-family: $font-primary;
+    font-weight: 400;
+    color: $color-dark;
+    line-height: 1.6;
+}
+
+/* =============================== Header Starts Here =============================== */
+.header{
+    background-image: linear-gradient(to right bottom, rgba($color-black, .7), rgba($color-black,.7)), url(../img/coffee1.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    &__navigation{
+
+    }
+    &__textbox{
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 0 5vw;
+        text-align: center;
+    }
+}
+.logo{
+    font-size: 3rem;
+    color: $color-light;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
+    @media only screen and (max-width: $bp-small){
+        align-items: flex-start;
+    }
+    &__list{
+        & *:not(:last-child){
+            margin-right: 3rem;
+        }
+        @media only screen and (max-width: $bp-small){
+            display: none;
+        }
+    }
+    &__item{
+        display: inline;
+        @media only screen and (max-width: $bp-small){
+            display: block;
+        }
+    }
+    &__link{
+        font-size: 1.6rem;
+        color: $color-grey-light;
+        @media only screen and (max-width: $bp-small){
+            font-size: 2rem;
+        }
+        &:hover{
+            color: $color-light;
+            transition: all .2s;
+        }
+    }
+}
+.icon{
+    &__menu{
+        font-size: 3rem;
+        display :none;
+        @media only screen and (max-width: $bp-small){
+            display: block;
+            color: $color-light;
+        }
+    }
+    &__history{
+        font-size: 3rem;
+        color: $color-primary;
+        cursor: pointer;
+    }
+    &__coffee{
+        font-size: 3rem;
+        color: $color-primary;
+        cursor: pointer;
+    }
+    &__mug{
+        font-size: 3rem;
+        color: $color-primary;
+        cursor: pointer;
+    }
+}
+.heading-primary{
+    font-size: 5rem;
+    font-weight: 500;
+    color: $color-light;
+    line-height: 1.2;
+    @media only screen and (max-width: $bp-small){
+        font-weight: 400;
+        font-size: 4rem;
+    }
+}
+/* =============================== Header Ends Here =============================== */
+
+/* =============================== Section About Starts Here =============================== */
+.about{
+    padding: 10rem 0;
+    &__flex{
+        display: flex;
+        @media only screen and (max-width: $bp-small){
+            flex-direction: column;
+        }
+    }
+    &__left{
+        flex: 0 0 50%;
+        padding: 2vh 5vw;
+        &--text{
+            font-size: 1.3rem;
+            color: $color-grey-light;
+            margin: 2rem 0;
+            text-align: justify;
+            @media only screen and (max-width: $bp-small){
+                font-size: 1.8rem;
+            }
+        }
+        &--more{
+            font-size: 1.6rem;
+            font-weight: 600;
+            position: relative;
+            margin-left: 4rem;
+            cursor: pointer;
+            &:before{
+                content: '';
+                position: absolute;
+                width: 3rem;
+                height: 1px;
+                top: 50%;
+                left: -40%;
+                background-color: $color-black;
+            }
+        }
+    }
+    &__right{
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        @media only screen and (max-width: $bp-small){
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        }
+        grid-gap: 2rem;
+        padding: 2vh 5vw;
+        color: $color-grey-light;
+        text-align: justify;
+        & *:not(:last-child){
+            margin-bottom: .5rem;
+        }
+        &--item{
+            &-text{
+                font-size: 1.3rem;
+                @media only screen and (max-width: $bp-small){
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+}
+.heading-secondary{
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1;
+    &__line{
+        margin: 5rem 0 0 15rem;
+        position: relative;
+        @media only screen and (max-width: $bp-small){
+            margin: 0 0 0 5rem;
+        }
+        &:before{
+            content: '';
+            position: absolute;
+            width: 5rem;
+            height: 2px;
+            background-color: $color-dark;
+            top: 50%;
+            left: -7%;
+            @media only screen and (max-width: $bp-small){
+                left: -10%;
+            }
+        }
+    }
+}
+.heading-tertiary{
+    font-size: 2rem;
+    font-weight: 400;
+    color: $color-dark;
+    font-weight: 600;
+    letter-spacing: -1px;
+    
+}
+/* =============================== Section About Ends Here =============================== */
+
+/* =============================== Section Service Starts Here =============================== */
+.services{
+    padding: 0 0 5rem 0;
+    &__flex{
+        display: flex;
+        align-items: center;
+        @media only screen and (max-width: $bp-small){
+            flex-direction: column;
+        }
+    }
+    &__text{
+        flex: 0 0 50%;
+        margin: 10rem 0;
+        @media only screen and (max-width: $bp-small){
+            margin: 5rem 0;
+        }
+        &--para{
+            font-size: 1.3rem;
+            color: $color-grey-light;
+            @media only screen and (max-width: $bp-small){
+                font-size: 1.8rem;
+            }
+        }
+        &--price{
+            font-size: 2rem;
+            font-weight: 600;
+            color: $color-dark;
+        }
+    }
+    &__textbox{
+        padding: 0 10vw;
+        
+        & *:not(:last-child){
+            margin-bottom: .8rem;
+        }
+    }
+    &__photo{
+        flex: 1;
+        padding: 5vh 9vw;
+        @media only screen and (max-width: $bp-small){
+            padding: 0;
+        }
+        &--img{
+            
+            &-1{
+                transform: translateY(-1rem);
+                outline: 2rem solid $color-pink-light;
+            }
+            &-2{
+                transform: translateY(5rem);
+                outline: 2rem solid $color-pink-light;
+            }
+        }
+    }
+}
+.btn{
+    display: inline-block;
+
+    &__primary{
+        padding: 1rem 1.5rem;
+        background-color: $color-primary;
+        color: $color-light;
+        font-size: 1.2rem;
+        border: 1px solid $color-primary;
+        &:hover{
+            border: 1px solid $color-dark;
+            color: $color-dark;
+            background-color: $color-light;
+            transition: all .5s;
+        }
+    }
+}
+/* =============================== Section Service Ends Here =============================== */
+
+/* =============================== Section porfolio Starts Here =============================== */
+.portfolio{
+    padding: 5rem 0;
+    &__flex{
+        display: flex;
+        align-items: center;
+        @media only screen and (max-width: $bp-small){
+            flex-direction: column;
+        }
+    }
+    &__photo{
+        flex: 0 0 50%;
+        padding: 0 8vw;
+        margin-top: 3rem;
+        
+        &--img{
+            border-radius: 100rem;
+        }
+    }
+    &__textbox{
+        flex: 1;
+        padding: 0 12vw;
+        &--text{
+            @media only screen and (max-width: $bp-small){
+                font-size: 1.6rem;
+            }
+            &-1{
+                transform: translateX(-4rem);
+                margin-bottom: 3rem;
+            }
+            &-2{
+                transform: translateX(2rem);
+                margin-bottom: 8rem;
+            }
+            &-3{
+                transform: translateX(-6rem);
+            }
+        }
+        &--para{
+            font-size: 1.2rem;
+            @media only screen and (max-width: $bp-small){
+                font-size: 1.6rem;
+            }
+        }
+    }
+}
+/* =============================== Section porfolio Ends Here =============================== */
+
+/* =============================== Section Blog Starts Here =============================== */
+.blog{
+    padding: 10rem 0;
+    &__flex{
+        display: flex;
+        @media only screen and (max-width: $bp-small){
+            flex-direction: column;
+        }
+    }
+    &__left{
+        flex: 0 0 50%;
+        padding: 0 2vw;
+        &--item{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, min-content);
+            &-1{
+                margin-bottom: 3rem;
+                
+            }
+            &-2{
+                margin-bottom: 3rem;
+                
+            }
+            &-3{
+                
+            }
+            &-text{
+                font-size: 1.3rem;
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+            }
+            &-img{
+                width: 8rem;
+                height: 8rem;
+                border-radius: 10rem;
+                grid-column: 2 / 3;
+                grid-row: 1 / 2;
+                justify-self: center;
+                &-1{
+                    justify-self: flex-end;
+                }
+            }
+            &-name{
+                grid-column: 1 / -1;
+                grid-row: 2 / 3;
+            }
+        }
+    }
+    &__right{
+        flex: 1;
+        padding: 5vh 5vw;
+        & *:not(:last-child){
+            margin-bottom: 3rem;
+        }
+        &--text{
+            font-size: 1.4rem;
+        }
+        &--btn{
+
+        }
+    }
+}
+/* =============================== Section Blog Ends Here =============================== */
+
+/* =============================== Footer Starts Here =============================== */
+.footer{
+    padding: 10rem 0;
+    background-image: linear-gradient(to right, $color-dark, $color-dark);
+    color: $color-grey-light;
+    
+    &__grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        grid-row-gap: 5rem;
+        @media only screen and (max-width: $bp-small){
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        }
+        &--item{
+            
+            &-2{
+                transform: translateX(-10rem);
+                @media only screen and (max-width: $bp-small){
+                    transform: translateX(0);
+                }
+            }
+            &-3{
+                
+            }
+            &-4{
+                padding: 0 5vw;
+            }
+        }
+    }
+    &__logo{
+        font-size: 3rem;
+        color: $color-light;
+    }
+    &__text{
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        @media only screen and (max-width: $bp-small){
+            font-size: 1.8rem;
+        }
+    }
+    &__form{
+        display: flex;
+        align-items: flex-start;
+       
+        &--input{
+            padding: 1.3rem 1rem;
+            border: none;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+    &__nav{
+        
+        &--list{
+            & *:not(:last-child){
+                margin-bottom: 1rem;
+            }
+        }
+        &--item{
+            
+        }
+        &--link{
+            font-size: 1.2rem;
+            @media only screen and (max-width: $bp-small){
+                font-size: 1.8rem;
+            }
+            &-active{
+                color: $color-light;
+                font-size: 1.4rem;
+                font-weight: 600;
+                @media only screen and (max-width: $bp-small){
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+    &__contact{
+        display: block;
+        color: $color-light;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        @media only screen and (max-width: $bp-small){
+            font-size: 1.8rem;
+        }
+    }
+    &__address{
+        font-size: 1.2rem;
+        @media only screen and (max-width: $bp-small){
+            font-size: 1.8rem;
+        }
+    }
+}
+
+
+
